@@ -13,6 +13,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
 
@@ -80,10 +82,62 @@
   /* Loader */
   #loader{position:fixed; inset:0; background:var(--bg); z-index:9999; display:flex; align-items:center; justify-content:center; transition:opacity .6s ease, visibility .6s;}
   #loader.hide{opacity:0; visibility:hidden;}
-  .loader-text{font-family:'JetBrains Mono',monospace; color:var(--gray); font-size:14px; display:flex; gap:4px; align-items:center;}
-  .loader-bar{width:160px; height:2px; background:var(--border); margin-top:14px; overflow:hidden; border-radius:2px;}
-  .loader-bar span{display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--purple),var(--blue)); animation:load 1.4s ease forwards;}
-  @keyframes load{to{width:100%;}}
+  .loader-content{
+    text-align:center;
+    width:350px;
+  }
+  .ring{
+      width:90px;
+      height:90px;
+      margin:auto;
+      border-radius:50%;
+      border:5px solid rgba(255,255,255,.08);
+      border-top:5px solid #7C3AED;
+      border-right:5px solid #3B82F6;
+      animation:spin 1s linear infinite;
+  }
+
+  .loader-content h2{
+      margin-top:25px;
+      font-size:34px;
+      font-weight:800;
+  }
+
+  .loader-content p{
+      color:#94A3B8;
+      margin-top:18px;
+      font-size:15px;
+  }
+
+  .loading-bar{
+      width:100%;
+      height:8px;
+      background:#1e293b;
+      border-radius:50px;
+      margin:30px auto 12px;
+      overflow:hidden;
+  }
+
+  .loading-fill{
+      width:0%;
+      height:100%;
+      border-radius:50px;
+      background:linear-gradient(90deg,#7C3AED,#3B82F6,#EC4899);
+      transition:width .3s;
+  }
+
+  .loading-percent{
+      color:white;
+      font-family:"JetBrains Mono",monospace;
+      font-size:15px;
+      margin-top:10px;
+  }
+
+  @keyframes spin{
+      to{
+          transform:rotate(360deg);
+      }
+  }
 
   /* Scroll progress */
   #progress{position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--purple),var(--blue),var(--pink)); z-index:1000; width:0%;}
@@ -329,14 +383,92 @@
       transform:translateY(-3px);
       box-shadow:0 10px 30px rgba(124,58,237,.35);
   }
+
+  .projects-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .view-projects-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+  }
+
+  .view-projects-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+  }
+
+  .view-projects-btn i {
+    transition: transform 0.3s ease;
+  }
+
+  .view-projects-btn:hover i {
+    transform: translateX(5px);
+  }
+
+  .certificates-btn{
+      display:flex;
+      justify-content:center;
+      margin-top:40px;
+  }
+
+  .view-certificates-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 32px;
+      border-radius:50px;
+      background:linear-gradient(135deg,#7C3AED,#3B82F6);
+      color:#fff;
+      text-decoration:none;
+      font-size:16px;
+      font-weight:600;
+      transition:all .3s ease;
+      box-shadow:0 8px 20px rgba(124,58,237,.3);
+  }
+
+  .view-certificates-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 30px rgba(124,58,237,.45);
+  }
+
+  .view-certificates-btn span{
+      transition:transform .3s ease;
+  }
+
+  .view-certificates-btn:hover span{
+      transform:translateX(5px);
+  }
 </style>
 </head>
 <body>
 
-<div id="loader"><div style="text-align:center;">
-  <div class="loader-text"><span class="mono">&lt;</span> P. Venumohan <span class="mono">/&gt;</span></div>
-  <div class="loader-bar"><span></span></div>
-</div></div>
+<!-- Loader -->
+<div id="loader">
+    <div class="loader-content">
+        <div class="ring"></div>
+        <h2>
+            &lt; <span class="grad-text">P. Venumohan</span> /&gt;
+        </h2>
+        <p id="loadingText">Initializing Portfolio...</p>
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+        <div class="loading-percent">0%</div>
+    </div>
+</div>
 
 <div id="progress"></div>
 <canvas id="bg-canvas"></canvas>
@@ -442,9 +574,9 @@
     <div class="about-grid">
       <div class="glass about-card reveal">
         <div class="stats-grid">
-          <div class="stat glass"><div class="num grad-text">4+</div><div class="lbl">Projects Built</div></div>
+          <div class="stat glass"><div class="num grad-text">10+</div><div class="lbl">Projects Built</div></div>
           <div class="stat glass"><div class="num grad-text">2026</div><div class="lbl">Graduate</div></div>
-          <div class="stat glass"><div class="num grad-text">8.18</div><div class="lbl">CGPA</div></div>
+          <div class="stat glass"><div class="num grad-text">8.31</div><div class="lbl">CGPA</div></div>
           <div class="stat glass"><div class="num grad-text">4</div><div class="lbl">Certifications</div></div>
         </div>
       </div>
@@ -572,8 +704,19 @@
           </div>
         </div>
       </div>
-
     </div>
+    <div class="projects-btn">
+      <a
+        href="https://github.com/Venumohan004?tab=repositories"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="view-projects-btn"
+      >
+        View All Projects
+        <span>→</span>
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -664,6 +807,18 @@
         <div class="issuer">Larsen &amp; Toubro EduTech</div>
       </div>
     </div>
+    <div class="certificates-btn">
+      <a
+        href="https://drive.google.com/drive/folders/1dOFvzi3O2iZOCeNkHUMv3D_efhhwPmGG"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="view-certificates-btn"
+      >
+        <i class="fa-solid fa-folder-open"></i>
+        View All Certificates
+        <span>→</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -673,10 +828,10 @@
     <p class="eyebrow reveal">Achievements</p>
     <h2 class="section-title reveal">By the numbers</h2>
     <div class="ach-strip">
-      <div class="ach-item glass reveal"><div class="num grad-text">4+</div><div class="lbl">Projects Completed</div></div>
-      <div class="ach-item glass reveal"><div class="num grad-text">10+</div><div class="lbl">GitHub Repositories</div></div>
+      <div class="ach-item glass reveal"><div class="num grad-text">10+</div><div class="lbl">Projects Completed</div></div>
+      <div class="ach-item glass reveal"><div class="num grad-text">13+</div><div class="lbl">GitHub Repositories</div></div>
       <div class="ach-item glass reveal"><div class="num grad-text">15+</div><div class="lbl">Technologies Learned</div></div>
-      <div class="ach-item glass reveal"><div class="num grad-text">8.18</div><div class="lbl">CGPA</div></div>
+      <div class="ach-item glass reveal"><div class="num grad-text">8.31</div><div class="lbl">CGPA</div></div>
     </div>
   </div>
 </section>
@@ -718,7 +873,7 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <a href="#hero" class="logo">PV<span class="dot"></span></a>
+      <a href="#hero" class="logo">PVM<span class="dot"></span></a>
       <div class="footer-links">
         <a href="https://github.com/Venumohan004" target="_blank" rel="noopener">GitHub</a>
         <a href="https://linkedin.com/in/venumohan-p-522017346" target="_blank" rel="noopener">LinkedIn</a>
@@ -737,9 +892,40 @@
 
 <script>
 // ---------- Loader ----------
-window.addEventListener('load', () => {
-  setTimeout(()=> document.getElementById('loader').classList.add('hide'), 900);
-});
+const loadingText = document.getElementById("loadingText");
+const loadingFill = document.querySelector(".loading-fill");
+const loadingPercent = document.querySelector(".loading-percent");
+
+const loadingMessages = [
+    "Initializing Portfolio...",
+    "Loading Projects...",
+    "Loading Skills...",
+    "Loading Experience...",
+    "Almost Ready..."
+];
+
+
+let loadingprogress = 0;
+let index = 0;
+const loaderInterval = setInterval(() => {
+    loadingprogress += 20;
+
+    loadingFill.style.width = loadingprogress + "%";
+    loadingPercent.innerText = loadingprogress + "%";
+
+    if(index < loadingMessages.length){
+        loadingText.innerText = loadingMessages[index];
+        index++;
+    }
+    if(loadingprogress >= 100){
+
+        clearInterval(loaderInterval);
+
+        setTimeout(() => {
+            document.getElementById("loader").classList.add("hide");
+        },400);
+    }
+},500);
 
 // ---------- Scroll progress + navbar ----------
 const navbar = document.getElementById('navbar');
