@@ -419,8 +419,5 @@ https://linkedin.com/in/venumohan-p-522017346
 
 <p align="center">
 Made with ❤️ using HTML, CSS and JavaScript
-<<<<<<< HEAD
 </p>
-=======
-</p>
->>>>>>> a1aca901f78fbc35e3ca6961e6dfcd5763acc64c
+
