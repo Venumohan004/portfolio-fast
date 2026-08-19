@@ -451,7 +451,425 @@
   .view-certificates-btn:hover span{
       transform:translateX(5px);
   }
-</style>
+
+    /* =========================================
+      PREMIUM PORTFOLIO FOOTER
+    ========================================= */
+
+    .portfolio-footer {
+      position: relative;
+      margin-top: 100px;
+      padding: 70px 0 25px;
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(124, 58, 237, 0.10),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 85% 30%,
+          rgba(59, 130, 246, 0.08),
+          transparent 35%
+        ),
+        rgba(5, 8, 22, 0.85);
+
+      border-top: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+
+    /* Gradient top glow */
+
+    .portfolio-footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--purple),
+        var(--blue),
+        var(--pink),
+        transparent
+      );
+
+      opacity: .8;
+    }
+
+
+    /* Footer top */
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 55px;
+    }
+
+
+    /* Brand */
+
+    .footer-brand {
+      max-width: 320px;
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      font-family: 'Sora', sans-serif;
+      font-size: 27px;
+      font-weight: 800;
+
+      color: var(--text);
+      text-decoration: none;
+      margin-bottom: 18px;
+    }
+
+    .footer-logo .dot {
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      background: var(--pink);
+
+      box-shadow:
+        0 0 8px var(--pink),
+        0 0 18px rgba(236, 72, 153, .45);
+    }
+
+
+    .footer-brand p {
+      color: var(--gray);
+      font-size: 13.5px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+
+    /* Availability */
+
+    .footer-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 8px 13px;
+
+      border: 1px solid rgba(34, 197, 94, .2);
+      border-radius: 999px;
+
+      background: rgba(34, 197, 94, .06);
+
+      color: #86efac;
+      font-size: 12px;
+    }
+
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #22c55e;
+
+      box-shadow: 0 0 10px rgba(34, 197, 94, .8);
+    }
+
+
+    /* Footer columns */
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+
+    .footer-column h4 {
+      font-family: 'Sora', sans-serif;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      color: var(--text);
+
+      margin-bottom: 9px;
+    }
+
+
+    .footer-column a {
+      width: fit-content;
+
+      color: var(--gray);
+
+      font-size: 13px;
+
+      text-decoration: none;
+
+      transition: .25s ease;
+    }
+
+
+    .footer-column a:hover {
+      color: var(--text);
+
+      transform: translateX(4px);
+    }
+
+
+    /* Tech stack */
+
+    .footer-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+
+    .footer-tech span {
+      padding: 6px 9px;
+
+      border-radius: 7px;
+
+      border: 1px solid var(--border);
+
+      background: rgba(255,255,255,.025);
+
+      color: var(--gray);
+
+      font-size: 11px;
+
+      transition: .25s ease;
+    }
+
+
+    .footer-tech span:hover {
+      color: var(--text);
+
+      border-color: rgba(124, 58, 237, .5);
+
+      background: rgba(124, 58, 237, .08);
+
+      transform: translateY(-2px);
+    }
+
+
+    /* Divider */
+
+    .footer-divider {
+      height: 1px;
+
+      margin: 50px 0 22px;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--border),
+        transparent
+      );
+    }
+
+
+    /* Bottom */
+
+    .footer-bottom {
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+
+    .footer-bottom p {
+      margin: 0;
+
+      color: var(--gray);
+
+      font-size: 11.5px;
+    }
+
+
+    .footer-bottom strong {
+      color: var(--text);
+    }
+
+
+    /* Heart */
+
+    .heart {
+      color: #ec4899;
+
+      font-size: 14px;
+
+      display: inline-block;
+
+      animation: heartbeat 1.6s infinite;
+    }
+
+
+    @keyframes heartbeat {
+
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+    }
+
+
+    /* Back to top */
+
+    .footer-top-btn {
+      width: 40px;
+      height: 40px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      border: 1px solid var(--border);
+
+      background: rgba(255,255,255,.03);
+
+      color: var(--text);
+
+      font-size: 18px;
+
+      text-decoration: none;
+
+      transition: .3s ease;
+    }
+
+
+    .footer-top-btn:hover {
+      transform: translateY(-4px);
+
+      border-color: var(--purple);
+
+      background: rgba(124,58,237,.12);
+
+      box-shadow:
+        0 8px 25px rgba(124,58,237,.2);
+    }
+
+
+    /* =========================================
+      RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 900px) {
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .portfolio-footer {
+        padding: 55px 0 22px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .footer-brand {
+        max-width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-top-btn {
+        margin-top: 5px;
+      }
+    }
+
+    /* Footer Social Links */
+
+    .footer-social {
+      display: flex !important;
+      align-items: center;
+      gap: 10px;
+
+      width: 100% !important;
+
+      color: var(--gray) !important;
+      text-decoration: none;
+
+      padding: 7px 0;
+
+      transition: .25s ease;
+    }
+
+    .footer-social:hover {
+      color: var(--text) !important;
+      transform: translateX(5px);
+    }
+
+    .social-icon {
+      width: 25px;
+      height: 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 15px;
+
+      border-radius: 7px;
+
+      background: rgba(255,255,255,.04);
+
+      border: 1px solid var(--border);
+
+      transition: .25s ease;
+    }
+
+    .footer-social:hover .social-icon {
+      border-color: rgba(124,58,237,.5);
+
+      background: rgba(124,58,237,.10);
+
+      transform: scale(1.08);
+    }
+    .social-arrow {
+      margin-left: 2px;
+      font-size: 11px;
+      opacity: .5;
+      transition: .25s ease;
+    }
+    .footer-social:hover .social-arrow {
+      opacity: 1;
+      transform: translate(2px,-2px);
+    }
+    
+  </style>
 </head>
 <body>
 
@@ -681,7 +1099,7 @@
           </div>
         <div class="project-body">
           <h3>Smart Attendance System</h3>
-          <p>Desktop attendance manager built with Python and Tkinter, storing records in CSV with full search, update and reporting flows.</p>
+          <p>Desktop attendance management application built with Python and Tkinter, featuring attendance tracking, employee record management, search, updates and report generation.</p>
           <div class="feature-list"><span>Search</span><span>Update</span><span>Delete</span><span>Reports</span></div>
           <div class="tag" style="margin-bottom:14px;">Python</div><div class="tag" style="margin-bottom:14px;">Tkinter</div><div class="tag" style="margin-bottom:14px;">CSV</div>
           <div class="project-links">
@@ -691,19 +1109,37 @@
       </div>
 
       <div class="project-card glass p4 reveal">
-         <div class="project-thumb">
-            <img src="assets/projects/salary.png" alt="salary-" style="width:100%;height:100%;object-fit:cover;">
-          </div>
-        <div class="project-body">
-          <h3>Employee Attendance &amp; Salary Calculator</h3>
-          <p>Excel-based workbook automating salary calculation from attendance data using COUNTIF and VLOOKUP, with built-in charts.</p>
-          <div class="feature-list"><span>Salary Calculation</span><span>Attendance</span><span>Charts</span></div>
-          <div class="tag" style="margin-bottom:14px;">Excel</div><div class="tag" style="margin-bottom:14px;">COUNTIF</div><div class="tag" style="margin-bottom:14px;">VLOOKUP</div>
-          <div class="project-links">
-            <a href="https://github.com/Venumohan004/employee-attendance-salary" target="_blank" rel="noopener">🐙 GitHub ↗</a>
-          </div>
+        <div class="project-thumb">
+          <img 
+            src="assets/projects/dashboard_splitter.jpeg" 
+            alt="Smart Expense Splitter" 
+            style="width:100%;height:100%;object-fit:cover;"
+          >
+        </div>
+
+      <div class="project-body">
+        <h3>Smart Expense Splitter</h3>
+
+        <p>
+         A responsive expense management application that simplifies group bill splitting, tracks individual contributions, and calculates balances to determine who owes whom.
+        </p>
+
+        <div class="feature-list">
+          <span>Expense Tracking</span>
+          <span>Bill Splitting</span>
+          <span>Balance Calculation</span>
+        </div>
+
+        <div class="tag" style="margin-bottom:14px;">React</div>
+        <div class="tag" style="margin-bottom:14px;">JavaScript</div>
+        <div class="tag" style="margin-bottom:14px;">Vite</div>
+
+        <div class="project-links">
+          <a href="https://github.com/Venumohan004/Smart-Expense-Splitter" target="_blank" rel="noopener">🐙 GitHub ↗</a>
+          <a href="https://smart-expense-splitter-rrcv.onrender.com" target="_blank" rel="noopener">🚀 Live Demo ↗</a>
         </div>
       </div>
+    </div>
     </div>
     <div class="projects-btn">
       <a
@@ -732,7 +1168,7 @@
           <div class="t-date">2022 — 2026</div>
           <h4>B.Tech, Computer Science &amp; Data Science Engineering</h4>
           <div class="org">Sri Venkateswara College of Engineering and Technology, Chittoor</div>
-          <p>CGPA: 8.18</p>
+          <p>CGPA: 8.31</p>
         </div>
         <div class="t-item reveal">
           <div class="t-dot"></div>
@@ -870,24 +1306,123 @@
   </div>
 </section>
 
-<footer>
+<footer class="portfolio-footer">
   <div class="container">
-    <div class="footer-inner">
-      <a href="#hero" class="logo">PVM<span class="dot"></span></a>
-      <div class="footer-links">
-        <a href="https://github.com/Venumohan004" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/venumohan-p-522017346" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.instagram.com/im._.venuuu._.931/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/P.venumohan004" target="_blank" rel="noopener">Facebook</a>
-        <a href="mailto:pvenumohan004@gmail.com">Email</a>
+
+    <div class="footer-top">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="#hero" class="footer-logo">
+          PVM<span class="dot"></span>
+        </a>
+
+        <p>
+          Building practical, scalable and user-friendly web applications with Python, React and modern web technologies.
+        </p>
+      </div>
+
+
+      <!-- Quick Links -->
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+
+      <!-- Connect -->
+      <div class="footer-column">
+        <h4>Connect</h4>
+
+        <a href="https://github.com/Venumohan004"
+          target="_blank"
+          rel="noopener"
+          class="footer-social">
+          <span class="social-icon">🐙</span>
+          <span>GitHub</span>
+          <span class="social-arrow">↗</span>
+        </a>
+
+        <a href="https://linkedin.com/in/venumohan-p-522017346"
+          target="_blank"
+          rel="noopener"
+          class="footer-social">
+          <span class="social-icon">💼</span>
+          <span>LinkedIn</span>
+          <span class="social-arrow">↗</span>
+        </a>
+
+        <a href="https://www.instagram.com/im._.venuuu._.931/"
+          target="_blank"
+          rel="noopener"
+          class="footer-social">
+          <span class="social-icon">📷</span>
+          <span>Instagram</span>
+          <span class="social-arrow">↗</span>
+        </a>
+
+        <a href="https://www.facebook.com/P.venumohan004"
+          target="_blank"
+          rel="noopener"
+          class="footer-social">
+          <span class="social-icon">📘</span>
+          <span>Facebook</span>
+          <span class="social-arrow">↗</span>
+        </a>
+
+        <a href="mailto:pvenumohan004@gmail.com"
+          class="footer-social">
+          <span class="social-icon">✉️</span>
+          <span>Email</span>
+          <span class="social-arrow">↗</span>
+        </a>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="footer-column">
+        <h4>Tech Stack</h4>
+
+        <div class="footer-tech">
+          <span>Python</span>
+          <span>Flask</span>
+          <span>Django</span>
+          <span>React</span>
+          <span>JavaScript</span>
+          <span>SQL</span>
+        </div>
       </div>
     </div>
-    <p class="copyright">Made with ❤️ using HTML CSS JavaScript</p>
-    <p id="copyright">© 2026 P Venumohan. Built with care.</p>
+
+    <!-- Footer Divider -->
+    <div class="footer-divider"></div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+
+      <p>
+        © 2026 <strong>P Venumohan</strong>. All rights reserved.
+      </p>
+
+      <p>
+        Designed &amp; Built with
+        <span class="heart">♥</span>
+        using HTML, CSS &amp; JavaScript
+      </p>
+
+      <a href="#hero" class="footer-top-btn" aria-label="Back to top"> ↑ </a>
+
+    </div>
+
   </div>
 </footer>
 
-<button id="back-to-top" aria-label="Back to top">↑</button>
+<!-- <button id="back-to-top" aria-label="Back to top">↑</button> -->
+
 <div id="toast"></div>
 
 <script>
@@ -938,7 +1473,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('back-to-top').classList.toggle('show', st > 500);
 }, {passive:true});
 
-document.getElementById('back-to-top').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+// document.getElementById('back-to-top').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
 // ---------- Mobile menu ----------
 const hamburger = document.getElementById('hamburger');
